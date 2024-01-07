@@ -1,6 +1,5 @@
 # 4개의 투자전력 모듈을 로드
 from invest.quant import buyandhold as bnh
-from invest.quant import halloween as hw
 from invest.quant import bollinger as boll
 from invest.quant import momentum as mmt
 
@@ -28,26 +27,6 @@ class Invest:
             self.end
         )
         print(f'바이앤홀드 누적 수익율은 {rtn}입니다.')
-        return result
-    
-    # 할로윈 전략 함수를 생성
-    def Halloween(self, _month = 11):
-        # 매개변수 4개 (_df, _start, _end, _month)
-        # _start : 투자 시작 년도
-        # _end : 투자 종료 년도
-        # self.start -> '2010-01-01'
-        # self.start[:4] -> '2010'
-        # self.start.split('-')[0]
-        # datetime.strftime(self.start, '%Y-%m-%d).strptime('%Y')
-        _start = int(self.start[:4])
-        _end = int(self.end.split('-')[0])
-        print(type(_start), type(_end))
-        result = hw.six_month(
-            self.data, 
-            _start, 
-            _end, 
-            _month
-        )
         return result
 
     # 볼린져 밴드 함수
